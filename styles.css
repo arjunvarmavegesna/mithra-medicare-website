@@ -175,8 +175,54 @@ ul { list-style: none; }
   justify-content: space-between;
   height: 70px;
 }
-.nav-logo { display: flex; align-items: center; }
-.logo-img { height: 48px; width: auto; object-fit: contain; }
+.nav-logo { display: flex; align-items: center; gap: 10px; }
+.logo-img {
+  height: 58px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  display: block;
+}
+.logo-text-wrap {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.logo-text-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--blue-dark);
+  letter-spacing: -.01em;
+}
+.logo-text-sub {
+  font-size: .68rem;
+  font-weight: 600;
+  color: var(--text-light);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+/* Fallback text shown only if logo fails to load */
+.logo-fallback {
+  display: none;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.logo-img.error + .logo-fallback { display: flex; }
+.logo-fallback-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--blue-dark);
+  letter-spacing: -.01em;
+}
+.logo-fallback-sub {
+  font-size: .7rem;
+  font-weight: 600;
+  color: var(--text-light);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
 
 .nav-links {
   display: flex;
@@ -328,7 +374,7 @@ ul { list-style: none; }
   box-shadow: var(--shadow-lg);
   z-index: 2;
 }
-.hero-logo-big { width: 160px; height: auto; object-fit: contain; }
+.hero-logo-big { width: 190px; height: auto; object-fit: contain; }
 
 .hero-circle-ring {
   position: absolute;
@@ -728,7 +774,7 @@ ul { list-style: none; }
   gap: 48px;
   padding: 64px 24px 48px;
 }
-.footer-logo { height: 44px; width: auto; object-fit: contain; filter: brightness(0) invert(1); margin-bottom: 16px; }
+.footer-logo { height: 58px; width: auto; max-width: 200px; object-fit: contain; filter: brightness(0) invert(1); margin-bottom: 16px; }
 .footer-brand p { font-size: .88rem; color: rgba(255,255,255,.55); line-height: 1.7; margin-bottom: 20px; }
 
 .social-row { display: flex; gap: 10px; }
