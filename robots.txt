@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arjunvarmavegesna.github.io/mithra-medicare-website/sitemap.xml
