@@ -1,15 +1,12 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const testimonials = [
-  { name: 'Ramaiah K.', location: 'Pedameram', rating: 5, text: 'Excellent care and very professional staff. The doctors were thorough and kind. I would highly recommend Mithra Medicare to anyone in need of quality healthcare.' },
-  { name: 'Sudha V.', location: 'Razole', rating: 5, text: 'I delivered my baby here and the entire experience was wonderful. The gynecology team was outstanding, and the facilities were clean and comfortable.' },
-  { name: 'Nagaraju P.', location: 'Amalapuram', rating: 5, text: 'After a road accident, I was rushed to their emergency. The quick response and expert orthopedic care saved my life. Forever grateful.' },
-  { name: 'Indira M.', location: 'Kakinada', rating: 4, text: 'Very affordable and quality care. The diagnostic lab results came quickly and the doctors explained everything clearly. Highly satisfied.' },
-  { name: 'Seshaiah T.', location: 'Pedameram', rating: 5, text: 'My father received cardiac care here and the cardiologist was simply brilliant. State-of-the-art equipment and compassionate staff.' },
+  { name: 'Ravi Kumar', initials: 'RK', dept: 'Gastroenterology Patient', rating: 5, text: 'I came to Mithra Medicare with severe abdominal pain. Dr. Vikranth was incredibly thorough in his diagnosis. The treatment was swift and I recovered fully within a week. Excellent hospital!' },
+  { name: 'Padmavathi Srinivas', initials: 'PS', dept: 'Gynaecology Patient', rating: 5, text: 'Dr. Nekkanti Sai Sindhu took care of me throughout my pregnancy with tremendous professionalism and warmth. My delivery was smooth and the entire nursing staff was outstanding.' },
+  { name: 'Lakshmi Narayana', initials: 'LN', dept: 'Paediatrics – Parent', rating: 5, text: 'My son needed urgent care and Dr. Murali Areti was exceptional. The paediatric team was so gentle and reassuring. As a parent, I felt completely supported the entire time.' },
+  { name: 'Venkata Rao', initials: 'VR', dept: 'Orthopaedics Patient', rating: 5, text: 'I had a knee injury and Dr. Yandapalli handled my orthopaedic case with great expertise. The WhatsApp booking system was so convenient — no hassle, just care.' },
 ];
 
 export default function Testimonials() {
@@ -17,8 +14,8 @@ export default function Testimonials() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
 
-  const prev = () => setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length);
-  const next = () => setCurrent((c) => (c + 1) % testimonials.length);
+  const prev = () => setCurrent(c => (c - 1 + testimonials.length) % testimonials.length);
+  const next = () => setCurrent(c => (c + 1) % testimonials.length);
 
   return (
     <section id="testimonials" className="py-24 bg-gray-50 overflow-hidden" ref={ref}>
@@ -46,24 +43,23 @@ export default function Testimonials() {
             >
               <Quote className="text-teal/20 w-16 h-16 absolute top-8 left-8" fill="currentColor" />
               <div className="flex justify-center mb-4">
-                {[...Array(testimonials[current].rating)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 text-yellow-400" fill="#facc15" />
+                {'★★★★★'.split('').map((s, i) => (
+                  <span key={i} className="text-yellow-400 text-2xl">{s}</span>
                 ))}
               </div>
               <p className="text-gray-600 text-lg md:text-xl leading-relaxed italic mb-8">
                 "{testimonials[current].text}"
               </p>
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-teal flex items-center justify-center text-white text-2xl font-bold mx-auto mb-3">
-                {testimonials[current].name[0]}
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-teal flex items-center justify-center text-white text-xl font-bold mx-auto mb-3">
+                {testimonials[current].initials}
               </div>
               <p className="font-bold text-primary text-lg">{testimonials[current].name}</p>
-              <p className="text-teal text-sm">{testimonials[current].location}</p>
+              <p className="text-teal text-sm">{testimonials[current].dept}</p>
             </motion.div>
           </AnimatePresence>
 
-          {/* Controls */}
           <div className="flex justify-center gap-4 mt-8">
-            <button onClick={prev} className="p-3 bg-white rounded-full shadow-md hover:shadow-lg hover:bg-primary hover:text-white transition-all text-primary">
+            <button onClick={prev} className="p-3 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition-all text-primary">
               <ChevronLeft className="w-5 h-5" />
             </button>
             <div className="flex items-center gap-2">
@@ -71,11 +67,11 @@ export default function Testimonials() {
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all ${i === current ? 'bg-teal w-8' : 'bg-gray-300'}`}
+                  className={`h-2.5 rounded-full transition-all ${i === current ? 'bg-teal w-8' : 'bg-gray-300 w-2.5'}`}
                 />
               ))}
             </div>
-            <button onClick={next} className="p-3 bg-white rounded-full shadow-md hover:shadow-lg hover:bg-primary hover:text-white transition-all text-primary">
+            <button onClick={next} className="p-3 bg-white rounded-full shadow-md hover:bg-primary hover:text-white transition-all text-primary">
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>

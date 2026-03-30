@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Ticker from './components/Ticker';
 import About from './components/About';
 import Services from './components/Services';
 import Doctors from './components/Doctors';
@@ -14,6 +15,7 @@ export default function App() {
     <div className="overflow-x-hidden">
       <Navbar />
       <Hero />
+      <Ticker />
       <About />
       <Services />
       <Doctors />
