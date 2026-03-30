@@ -26,17 +26,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="bg-teal p-2 rounded-lg">
-              <Heart className="text-white w-6 h-6" fill="white" />
-            </div>
+          <a href="#home" className="flex items-center gap-2">
+            <img src="/logo.jpg" alt="Mithra Medicare Hospital" className="h-12 w-auto rounded-lg" />
             <div>
               <p className={`font-bold text-lg leading-tight ${scrolled ? 'text-primary' : 'text-white'}`}>
                 Mithra Medicare
               </p>
-              <p className={`text-xs ${scrolled ? 'text-teal' : 'text-teal-200'}`}>Hospital</p>
+              <p className={`text-xs ${scrolled ? 'text-teal' : 'text-blue-200'}`}>Hospital</p>
             </div>
-          </div>
+          </a>
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-8">

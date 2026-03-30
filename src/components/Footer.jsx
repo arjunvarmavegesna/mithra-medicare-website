@@ -9,10 +9,8 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="bg-teal p-2 rounded-lg">
-                <Heart className="text-white w-5 h-5" fill="white" />
-              </div>
+            <div className="flex items-center gap-3 mb-4">
+              <img src="/logo.jpg" alt="Mithra Medicare Hospital" className="h-12 w-auto rounded-lg" />
               <div>
                 <p className="font-bold text-lg leading-tight">Mithra Medicare</p>
                 <p className="text-blue-300 text-xs">Hospital, Rajamahendravaram</p>
